@@ -1,24 +1,34 @@
 {
-  "name": "test-lib-nikitoqq",
-  "version": "0.0.1",
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "homepage": "https://google.com",
-  "repository": {
-    "url": "https://github.com/nikitoqq/test-lib"
-  },
+  "name": "toast-setting-page",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "build": "tsup"
+    "start": "webpack serve --open --mode=development",
+    "build": "webpack --mode production"
   },
-  "keywords": [
-    "test"
-  ],
-  "author": "nikitoqq",
-  "license": "MIT",
-  "description": "test npm package",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.1.15",
+    "toast-lib-nikitoqq": "^1.1.1"
+  },
   "devDependencies": {
-    "tsup": "^8.3.6",
-    "typescript": "^5.7.3"
+    "@babel/core": "^7.26.9",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-typescript": "^7.26.0",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "babel-loader": "^9.2.1",
+    "html": "^1.0.0",
+    "html-webpack-plugin": "^5.6.3",
+    "typescript": "^5.7.3",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
   }
 }

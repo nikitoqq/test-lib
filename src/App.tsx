@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 
-import useNotification, { NotifyProvider } from "toast-lib-nikitoqq";
+import {
+  useNotification,
+  NotifyProvider,
+  ToastProps,
+  ToastContextType,
+} from "toast-lib-nikitoqq";
 
 import { RadioGroup } from "./components/RadioGroup";
 import { SelectGroup } from "./components/SelectGroup";
 
 import { SETTING_ARRAY, TRANSITION_ARRAY } from "./constans";
 
-import { SETTING_ARRAY_TYPE, toastObjectType } from "./types";
+import { SETTING_ARRAY_TYPE } from "./types";
 
 import { Button, Main, Row } from "./styled";
 import { InputGroup } from "./components/InputGroup";
@@ -15,8 +20,8 @@ import { InputGroup } from "./components/InputGroup";
 export const App = () => {
   const { toast, addToast, deleteToast } = useNotification();
 
-  const [toastObject, setToastObject] = useState<toastObjectType>({
-    position: 'top-left',
+  const [toastObject, setToastObject] = useState<ToastProps>({
+    position: "top-left",
     autoClose: "1000",
     theme: "light",
     transition: "bounce",
@@ -26,19 +31,51 @@ export const App = () => {
   });
 
   return (
-    <NotifyProvider value={{ toast, addToast, deleteToast }}>
+    <NotifyProvider
+      value={{
+        toast,
+        deleteToast,
+        addToast,
+      }}
+    >
       <Main>
         {SETTING_ARRAY.map((el: SETTING_ARRAY_TYPE, index: number) => (
-          <RadioGroup onChange={setToastObject} toastObject={toastObject} key={index} array={el.array} name={el.name} />
+          <RadioGroup
+            onChange={setToastObject}
+            toastObject={toastObject}
+            key={index}
+            array={el.array}
+            name={el.name}
+          />
         ))}
         <Row>
           <Row>
-            <SelectGroup onChange={setToastObject} toastObject={toastObject} array={TRANSITION_ARRAY} name={"Transition"} />
-            <InputGroup onChange={setToastObject} toastObject={toastObject} name="Auto close" value={toastObject.autoClose} />
+            <SelectGroup
+              onChange={setToastObject}
+              toastObject={toastObject}
+              array={TRANSITION_ARRAY}
+              name={"Transition"}
+            />
+            <InputGroup
+              onChange={setToastObject}
+              toastObject={toastObject}
+              name="Auto close"
+              value={toastObject.autoClose}
+            />
           </Row>
           <Row>
-            <InputGroup onChange={setToastObject} toastObject={toastObject} name="Title" value={toastObject.title} />
-            <InputGroup onChange={setToastObject} toastObject={toastObject} name="Text" value={toastObject.text} />
+            <InputGroup
+              onChange={setToastObject}
+              toastObject={toastObject}
+              name="Title"
+              value={toastObject.title}
+            />
+            <InputGroup
+              onChange={setToastObject}
+              toastObject={toastObject}
+              name="Text"
+              value={toastObject.text}
+            />
           </Row>
         </Row>
         <Button onClick={() => addToast(toastObject)}>Add</Button>

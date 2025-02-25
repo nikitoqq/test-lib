@@ -4,7 +4,6 @@ import {
   useNotification,
   NotifyProvider,
   ToastProps,
-  ToastContextType,
 } from "toast-lib-nikitoqq";
 
 import { RadioGroup } from "./components/RadioGroup";
@@ -22,7 +21,7 @@ export const App = () => {
 
   const [toastObject, setToastObject] = useState<ToastProps>({
     position: "top-left",
-    autoClose: "1000",
+    autoClose: 1000,
     theme: "light",
     transition: "bounce",
     type: "info",
@@ -68,7 +67,7 @@ export const App = () => {
               onChange={setToastObject}
               toastObject={toastObject}
               name="Title"
-              value={toastObject.title}
+              value={toastObject.title!}
             />
             <InputGroup
               onChange={setToastObject}

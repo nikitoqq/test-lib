@@ -2,7 +2,7 @@ import React from "react";
 
 import { AriaName, Group, Label, Input, InputAria, Center } from "./styled";
 
-import { toastObjectType } from "../../types";
+import { ToastProps } from "toast-lib-nikitoqq";
 
 export const RadioGroup = ({
   onChange,
@@ -10,13 +10,12 @@ export const RadioGroup = ({
   array,
   name,
 }: {
-  onChange: React.Dispatch<React.SetStateAction<toastObjectType>>;
-  toastObject: toastObjectType;
+  onChange: React.Dispatch<React.SetStateAction<ToastProps>>;
+  toastObject: ToastProps;
   array: string[];
   name: string;
 }) => {
   const click = (e: any) => {
-    
     onChange({
       ...toastObject,
       position: name === "Position" ? e.target.value : toastObject.position,

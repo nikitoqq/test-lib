@@ -1,6 +1,6 @@
 import React from "react";
 import { AriaName, Group, Input } from "./styled";
-import { toastObjectType } from "../../types";
+import { ToastProps } from "toast-lib-nikitoqq";
 
 export const SelectGroup = ({
   onChange,
@@ -8,8 +8,8 @@ export const SelectGroup = ({
   array,
   name,
 }: {
-  onChange: React.Dispatch<React.SetStateAction<toastObjectType>>;
-  toastObject: toastObjectType;
+  onChange: React.Dispatch<React.SetStateAction<ToastProps>>;
+  toastObject: ToastProps;
   array: string[];
   name: string;
 }) => {
